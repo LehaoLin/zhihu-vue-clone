@@ -27,7 +27,7 @@
           @load="onLoad">
           <van-cell v-for="item in list" :key="item" :title="item" />
         </van-list>
-        
+
         <p>刷新次数: {{ count }}</p>
       </van-pull-refresh>
 
@@ -57,7 +57,7 @@ export default {
       list:[],
       count: 0,
       value:'',
-      active:'',
+      active:0,
       isLoading: false,
       loading: false,
       finished: false,
