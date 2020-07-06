@@ -12,12 +12,21 @@
             <van-icon name="add-o" @click="onAdd"></van-icon>
           </template>
         </van-search>
+
+        <van-tabs v-model="active_tab">
+
+          <van-pull-refresh v-model="isLoading" @refresh="onRefresh" style="height:99999vw;">
+            <p>刷新次数: {{ count }}</p>
+          </van-pull-refresh>
+          <van-tab title="关注">关注</van-tab>
+          <van-tab title="推荐">推荐</van-tab>
+          <van-tab title="热榜">热榜</van-tab>
+          <van-tab title="视频">视频</van-tab>
+        </van-tabs>
     </div>
 
     
-      <van-pull-refresh v-model="isLoading" @refresh="onRefresh" style="height:99999vw;">
-        <p>刷新次数: {{ count }}</p>
-       </van-pull-refresh>
+
 
 
        <van-list
@@ -58,6 +67,7 @@ export default {
       isLoading: false,
       loading: false,
       finished: false,
+      active_tab:1,
     }
   },
   methods:{
@@ -102,5 +112,8 @@ export default {
 <style>
 # search {
   margin: 0px;
+}
+.van-tabs__line {
+background-color: #61b2ff !important;
 }
 </style>
