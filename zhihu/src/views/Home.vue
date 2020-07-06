@@ -1,50 +1,44 @@
 <template>
   <div>
-
-    <div style="position:sticky;top:0px;z-index:999;">
-        <van-search
-          v-model="value"
-          show-action
-          placeholder="请输入搜索关键词"
-          @search="onSearch"
-          >
-          <template #action>        
-            <van-icon name="add-o" @click="onAdd"></van-icon>
-          </template>
-        </van-search>
-
-        <van-tabs v-model="active_tab">
-
-          <van-pull-refresh v-model="isLoading" @refresh="onRefresh" style="height:99999vw;">
-            <p>刷新次数: {{ count }}</p>
-          </van-pull-refresh>
-          <van-tab title="关注">关注</van-tab>
-          <van-tab title="推荐">推荐</van-tab>
-          <van-tab title="热榜">热榜</van-tab>
-          <van-tab title="视频">视频</van-tab>
-        </van-tabs>
-    </div>
-
-    
-
-
-
-       <van-list
-        v-model="loading"
-        :finished="finished"
-        finished-text="没有更多了"
-        @load="onLoad"
+    <van-search
+      v-model="value"
+      show-action
+      placeholder="请输入搜索关键词"
+      @search="onSearch"
       >
-        <van-cell v-for="item in list" :key="item" :title="item" />
-      </van-list>
-    
-      <van-tabbar v-model="active" @change="onChange">
-        <van-tabbar-item icon="home-o">首页</van-tabbar-item>
-        <van-tabbar-item icon="like-o">收藏</van-tabbar-item>
-        <van-tabbar-item icon="friends-o">朋友</van-tabbar-item>
-        <van-tabbar-item icon="user-o">个人</van-tabbar-item>
-      </van-tabbar>
-     
+      <template #action>        
+        <van-icon name="add-o" @click="onAdd"></van-icon>
+      </template>
+    </van-search>
+
+    <van-tabs v-model="active_tab">
+      <van-tab title="关注"></van-tab>
+      <van-tab title="推荐"></van-tab>
+      <van-tab title="热榜"></van-tab>
+      <van-tab title="视频"></van-tab>
+    </van-tabs>
+
+
+      <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
+        <van-list
+          v-model="loading"
+          :finished="finished"
+          finished-text="没有更多了"
+          @load="onLoad">
+          <van-cell v-for="item in list" :key="item" :title="item" />
+        </van-list>
+        
+        <p>刷新次数: {{ count }}</p>
+      </van-pull-refresh>
+
+
+    <van-tabbar v-model="active" @change="onChange">
+      <van-tabbar-item icon="home-o">首页</van-tabbar-item>
+      <van-tabbar-item icon="like-o">收藏</van-tabbar-item>
+      <van-tabbar-item icon="friends-o">朋友</van-tabbar-item>
+      <van-tabbar-item icon="user-o">个人</van-tabbar-item>
+    </van-tabbar>
+  
     
   </div>
 </template>
@@ -116,4 +110,5 @@ export default {
 .van-tabs__line {
 background-color: #61b2ff !important;
 }
+
 </style>
