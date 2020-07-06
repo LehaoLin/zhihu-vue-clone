@@ -1,24 +1,26 @@
 <template>
   <div>
-    <van-search
-      v-model="value"
-      show-action
-      placeholder="请输入搜索关键词"
-      @search="onSearch"
-      >
-      <template #action>        
-        <van-icon name="add-o" @click="onAdd"></van-icon>
-      </template>
-    </van-search>
 
-    <van-tabs v-model="active_tab">
-      <van-tab title="关注"></van-tab>
-      <van-tab title="推荐"></van-tab>
-      <van-tab title="热榜"></van-tab>
-      <van-tab title="视频"></van-tab>
-    </van-tabs>
+    <div class="topshit1">
+      <van-search
+        v-model="value"
+        show-action
+        placeholder="请输入搜索关键词"
+        @search="onSearch"
+        >
+        <template #action>        
+          <van-icon name="add-o" @click="onAdd"></van-icon>
+        </template>
+      </van-search>
 
-
+      <van-tabs v-model="active_tab">
+        <van-tab title="关注"></van-tab>
+        <van-tab title="推荐"></van-tab>
+        <van-tab title="热榜"></van-tab>
+        <van-tab title="视频"></van-tab>
+      </van-tabs>
+    </div>
+    
       <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
         <van-list
           v-model="loading"
@@ -30,7 +32,7 @@
 
         <p>刷新次数: {{ count }}</p>
       </van-pull-refresh>
-
+    
 
     <van-tabbar v-model="active" @change="onChange">
       <van-tabbar-item icon="home-o">首页</van-tabbar-item>
@@ -62,8 +64,14 @@ export default {
       loading: false,
       finished: false,
       active_tab:1,
+
+      tabOffsetTop: 0,
+      scrollTop: 0
     }
   },
+  // mounted () {
+  //   window.addEventListener('scroll', this.handleScroll)
+  // },
   methods:{
     onChange(index) {
       Notify({ type: 'primary', message: index });
@@ -98,17 +106,37 @@ export default {
         }
       }, 1000);
     },
+    // handleScroll () {
+    //   var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+    //   console.log(scrollTop)
+    // },
+
 
   }
 }
+
+
+
+
+
 </script>
 
 <style>
-# search {
-  margin: 0px;
-}
+
 .van-tabs__line {
 background-color: #61b2ff !important;
 }
 
+.topshit1 {
+  position:sticky;
+  top:0;
+  width:100%;
+  z-index:1;
+}
+
+.topshit2 {
+  position:sticky;
+  top:0;
+  width:100%;
+}
 </style>
