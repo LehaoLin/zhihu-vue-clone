@@ -134,9 +134,4 @@ background-color: #61b2ff !important;
   z-index:1;
 }
 
-.topshit2 {
-  position:sticky;
-  top:0;
-  width:100%;
-}
 </style>
