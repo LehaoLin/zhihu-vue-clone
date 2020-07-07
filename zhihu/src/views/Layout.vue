@@ -1,13 +1,12 @@
 <template>
     <div>
         <router-view>
-        
         </router-view>
             <van-tabbar v-model="active" @change="onChange">
                 <van-tabbar-item icon="home-o" to="/">首页</van-tabbar-item>
                 <van-tabbar-item icon="like-o" to="/like">收藏</van-tabbar-item>
-                <van-tabbar-item icon="friends-o">朋友</van-tabbar-item>
-                <van-tabbar-item icon="user-o">个人</van-tabbar-item>
+                <van-tabbar-item icon="friends-o" to="/friends">朋友</van-tabbar-item>
+                <van-tabbar-item icon="user-o" to="/user">个人</van-tabbar-item>
             </van-tabbar>
     </div>
 </template>
@@ -16,7 +15,7 @@
     export default {
         data() {
             return {
-                active:'',
+                active: 0,
             }
         },
         methods: {
