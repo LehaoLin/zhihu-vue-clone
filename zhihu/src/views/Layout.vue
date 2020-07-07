@@ -21,9 +21,28 @@
         methods: {
             onChange() {
                 console.log(this.active);
+            },
+            race() {
+                var router_name = this.$route.path;
+                if (router_name == "/" ){
+                    this.active = 0;
+                }
+                if (router_name == "/like"){
+                    this.active = 1;
+                }
+                if (router_name == "/friends") {
+                    this.active = 2;
+                }
+                if (router_name == "/user") {
+                    this.active = 3;
+                }
             }
         },
+        mounted() {
+            this.race();
+        },
     }
+
 </script>
 
 <style lang="scss" scoped>
