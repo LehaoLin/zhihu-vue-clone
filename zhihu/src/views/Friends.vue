@@ -1,6 +1,6 @@
 <template>
     <div>
-this is my friends
+this is my friend
     </div>
 </template>
 

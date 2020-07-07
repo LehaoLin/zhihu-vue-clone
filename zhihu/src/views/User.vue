@@ -1,6 +1,20 @@
 <template>
     <div>
-this is my personal user space
+        <div style="margin-top:20px;">
+            <van-sticky>
+                <van-image
+                round
+                width="4.5rem"
+                height="4.5rem"
+                src="https://img.yzcdn.cn/vant/cat.jpeg"
+                fit="cover"
+                />
+            </van-sticky>
+        </div>
+
+        
+        <van-divider>mnmsl</van-divider>
+
     </div>
 </template>
 
