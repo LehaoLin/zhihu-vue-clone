@@ -47,7 +47,7 @@
 
 <script>
 
-import { Notify } from 'vant';
+// import { Notify } from 'vant';
 // @ is an alias to /src
 // import HelloWorld from '@/components/HelloWorld.vue'
 export default {
@@ -74,10 +74,11 @@ export default {
   // },
   methods:{
     onChange(index) {
-      Notify({ type: 'primary', message: index });
+      // Notify({ type: 'primary', message: index });
+      console.log(index);
     },    
     onSearch(val){
-      Notify({ type: 'primary', message: val });
+      // Notify({ type: 'primary', message: val });
       console.log("val", val);
     },
     onAdd(){
