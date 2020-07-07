@@ -13,7 +13,9 @@
         </div>
 
         
-        <van-divider>mnmsl</van-divider>
+        <van-divider
+        :style="{ color: '#1989fa', borderColor: '#1989fa', padding: '0 16px' }">
+        </van-divider>
 
     </div>
 </template>
