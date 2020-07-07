@@ -12,6 +12,25 @@
           <van-icon name="add-o" @click="onAdd"></van-icon>
         </template>
       </van-search>
+        <!-- <van-cell is-link @click="showPopup">发布内容</van-cell> -->
+        <van-popup v-model="show" closeable close-icon-position="top-left" position="right" :style="{ height: '100%', width:'100%' }">
+            <van-nav-bar
+            title="发布内容"
+            />
+              <van-cell-group>
+                <van-field v-model="input_value" label="标题" placeholder="请输入标题" />
+              </van-cell-group>
+              <van-field
+                v-model="input_context"
+                rows="2"
+                autosize
+                label="留言"
+                type="textarea"
+                maxlength="50"
+                placeholder="请输入留言"
+                show-word-limit
+              />
+        </van-popup>
 
       <van-tabs v-model="active_tab">
         <van-tab title="关注" @click="home_follow"> </van-tab>
@@ -54,6 +73,9 @@ export default {
       scrollTop: 0,
       loading: false,
       finished: false,
+      show: false,
+      input_value:'',
+      input_context: '',
     }
   },
   // mounted () {
@@ -68,9 +90,9 @@ export default {
       // Notify({ type: 'primary', message: val });
       console.log("val", val);
     },
-    onAdd(){
-      console.log("添加")
-    },
+    // onAdd(){
+    //   console.log("添加")
+    // },
     onRefresh() {
       setTimeout(() => {
         this.isLoading = false;
@@ -102,7 +124,10 @@ export default {
     },
     home_hot() {
       this.onRefresh();
-    }
+    },
+    onAdd() {
+      this.show = true;
+    },
     // handleScroll () {
     //   var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
     //   console.log(scrollTop)
