@@ -23,13 +23,15 @@
               <van-field
                 v-model="input_context"
                 rows="2"
-                autosize
                 label="留言"
                 type="textarea"
-                maxlength="50"
+                maxlength="500"
                 placeholder="请输入留言"
                 show-word-limit
               />
+              <van-button round block type="info" native-type="submit">
+                提交
+              </van-button>
         </van-popup>
 
       <van-tabs v-model="active_tab">
