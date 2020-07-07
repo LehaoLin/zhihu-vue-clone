@@ -2,6 +2,7 @@
     <div>
         <div style="margin-top:20px;">
             <van-sticky>
+            
                 <van-image
                 round
                 width="4.5rem"
@@ -9,6 +10,9 @@
                 src="https://img.yzcdn.cn/vant/cat.jpeg"
                 fit="cover"
                 />
+        
+
+   
             </van-sticky>
             小猫咪
         </div>
@@ -42,6 +46,6 @@
     }
 </script>
 
-<style lang="scss" scoped>
+<style>
 
 </style>

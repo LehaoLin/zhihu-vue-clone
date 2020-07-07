@@ -34,11 +34,13 @@
               </van-button>
         </van-popup>
 
+    <van-index-bar>
       <van-tabs v-model="active_tab">
         <van-tab title="关注" @click="home_follow"> </van-tab>
         <van-tab title="推荐" @click="home_recommend"></van-tab>
         <van-tab title="热榜" @click="home_hot"></van-tab>
       </van-tabs>
+      </van-index-bar>
     </div>
 
         <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
