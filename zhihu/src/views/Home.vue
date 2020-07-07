@@ -14,33 +14,22 @@
       </van-search>
 
       <van-tabs v-model="active_tab">
-        <van-tab title="关注"></van-tab>
-        <van-tab title="推荐"></van-tab>
-        <van-tab title="热榜"></van-tab>
-        <van-tab title="视频"></van-tab>
+        <van-tab title="关注" @click="home_follow"> </van-tab>
+        <van-tab title="推荐" @click="home_recommend"></van-tab>
+        <van-tab title="热榜" @click="home_hot"></van-tab>
       </van-tabs>
     </div>
-    
-      <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
-        <van-list
-          v-model="loading"
-          :finished="finished"
-          finished-text="没有更多了"
-          @load="onLoad">
-          <van-cell v-for="item in list" :key="item" :title="item" />
-        </van-list>
 
-        <p>刷新次数: {{ count }}</p>
-      </van-pull-refresh>
-    
-
-    <van-tabbar v-model="active" @change="onChange">
-      <van-tabbar-item icon="home-o">首页</van-tabbar-item>
-      <van-tabbar-item icon="like-o">收藏</van-tabbar-item>
-      <van-tabbar-item icon="friends-o">朋友</van-tabbar-item>
-      <van-tabbar-item icon="user-o">个人</van-tabbar-item>
-    </van-tabbar>
-  
+        <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
+          <van-list
+            v-model="loading"
+            :finished="finished"
+            finished-text="没有更多了"
+            @load="onLoad">
+            <van-cell v-for="item in list" :key="item" :title="item" />
+          </van-list>
+          <p>刷新次数: {{ count }}</p>
+        </van-pull-refresh>
     
   </div>
 </template>
@@ -59,14 +48,12 @@ export default {
       list:[],
       count: 0,
       value:'',
-      active:0,
       isLoading: false,
+      active_tab:0,
+      tabOffsetTop: 0,
+      scrollTop: 0,
       loading: false,
       finished: false,
-      active_tab:1,
-
-      tabOffsetTop: 0,
-      scrollTop: 0
     }
   },
   // mounted () {
@@ -107,6 +94,15 @@ export default {
         }
       }, 1000);
     },
+    home_follow() {
+      this.onRefresh();
+    },
+    home_recommend() {
+      this.onRefresh();
+    },
+    home_hot() {
+      this.onRefresh();
+    }
     // handleScroll () {
     //   var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
     //   console.log(scrollTop)
@@ -115,9 +111,6 @@ export default {
 
   }
 }
-
-
-
 
 
 </script>
